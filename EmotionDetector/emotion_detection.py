@@ -10,13 +10,12 @@ def emotion_detector(text_to_analyze):
     emotion_list=result['emotionPredictions']
     emotion=emotion_list[0]['emotion']
     sortedEmotions=sorted(emotion.items(), key=lambda x:x[1], reverse=True)
-    print(sortedEmotions)
     emotion_aggregated={
         'anger': emotion['anger'],
         'disgust': emotion['disgust'],
         'fear': emotion['fear'],
         'joy': emotion['joy'],
         'sadness': emotion['sadness'],
+        'dominant_emotion': sortedEmotions[0][0]
     }
-    print(emotion_aggregated)
     return emotion_aggregated
